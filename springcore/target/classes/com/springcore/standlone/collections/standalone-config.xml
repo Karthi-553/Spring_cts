@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns:context="http://www.springframework.org/schema/context"
+xmlns:p="http://www.springframework.org/schema/p"
+xmlns:util="http://www.springframework.org/schema/util"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd
+ http://www.springframework.org/schema/util
+ http://www.springframework.org/schema/util/spring-util.xsd">
+ <!--standalone list-->
+ <util:list list-class="java.util.LinkedList" id="mybestfriends">
+ 		<value>sai</value>
+ 		<value>Raju</value>
+ 		<value>Kumar</value>
+ 		<value>Ram</value>
+ </util:list>
+ <util:map map-class="java.util.HashMap" id="closeFriends">
+ 		<entry key="Spring Framework" value="8000"/>
+ 		<entry key="Python" value="100"/>
+ 		<entry key="Java Framework" value="10000"/>
+ </util:map>
+ <util:map map-class="java.util.TreeMap" id="bff">
+ 		<entry key="Spring Framework" value="8000"/>
+ 		<entry key="Python" value="100"/>
+ 		<entry key="Java Framework" value="10000"/>
+ </util:map>
+ <bean class="com.springcore.standlone.collections.Person" name="person1">
+ 	<!--<property name="friends"> 
+ 	     <ref bean="mybestfriends"/>
+ 		</property>
+ 		-->
+ 		<property name="friends" ref="mybestfriends"/> 
+ 		<property name="feestructure" ref="closeFriends"/>
+ </bean>
+  <bean class="com.springcore.standlone.collections.Person" name="person2">
+ 		<property name="friends" ref="mybestfriends"/> 
+ 		 <property name="feestructure" ref="bff"/>
+ </bean>
+ </beans>
